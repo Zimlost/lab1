@@ -20,20 +20,19 @@
         $err = array();
 
 
-        if (!preg_match("/(?=^.{10,}$)(?=.*[_])(?=.*[A-Z0-9-]).*$/", $password) || preg_match("/(?=.[а-яё])(?=.[А-ЯЁ])/", $password))
-        {
-            array_push( $err,"Пароль не может быть такого формата");
+        if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $login))
+    {
+        array_push($err, "Email не может быть такого формата ");
+        $_SESSION['message'] = implode('', $err);
+        header("Location: registration.php");
+    }
+    elseif   (preg_match("/(?=.[а-яё])(?=.[А-ЯЁ])/", $password)) || (!preg_match("/(?=^.{10,}$)(?=.*[_])(?=.*[A-Z0-9-]).*$/", $password)
+    {
+            array_push( $err,"Пароль введенный некорректно");
             $_SESSION['message'] = implode('', $err);
             header("Location: registration.php");
-
-        }
-
-        elseif(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $login))
-        {
-            array_push($err, "Email не может быть такого формата ");
-            $_SESSION['message'] = implode('', $err);
-            header("Location: registration.php");
-
+            
+    }
 
         }else {
             $password_conf = $_POST["password_conf"];

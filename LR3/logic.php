@@ -1,23 +1,22 @@
 <?php
     include 'connect.php';
 
-    $indexes = array('cost1', 'cost2', 'type', 'description', 'name');
-    $coor = array();
+    $mass = array();
 
 
-    if (isset($_GET["cost1"]) && $_GET["cost1"] != "") array_push($coor, "cost > :cost1GET");
+    if (isset($_GET["cost1"]) && $_GET["cost1"] != "") array_push($mass, "cost > :cost1GET");
 
-    if (isset($_GET["cost2"]) && $_GET["cost2"] != "") array_push($coor, "cost < :cost2GET");
+    if (isset($_GET["cost2"]) && $_GET["cost2"] != "") array_push($mass, "cost < :cost2GET");
 
-    if (isset($_GET["type"]) && $_GET["type"] != "") array_push($coor, "weapon_type LIKE :typeGET"); 
+    if (isset($_GET["type"]) && $_GET["type"] != "") array_push($mass, "weapon_type LIKE :typeGET"); 
 
-    if (isset($_GET["description"]) && $_GET["description"] != "") array_push($coor,"weapon_description LIKE :descGET");
+    if (isset($_GET["description"]) && $_GET["description"] != "") array_push($mass,"weapon_description LIKE :descGET");
 
-    if (isset($_GET["name"]) && $_GET["name"] != "") array_push($coor,"weapon_name LIKE :nameGET");
+    if (isset($_GET["name"]) && $_GET["name"] != "") array_push($mass,"weapon_name LIKE :nameGET");
 
     $query = "SELECT img_path, weapon_name, weapon2.name, weapon_description, cost FROM kinds_of_weapons1 INNER JOIN weapon2 on kinds_of_weapons1.weapon_type = weapon2.id ";
 
-    if (!empty($coor)) $query = $query . "WHERE " . implode(" AND ", $coor);
+    if (!empty($mass)) $query = $query . "WHERE " . implode(" AND ", $mass);
 
 
     $stmt = $connect->prepare($query);

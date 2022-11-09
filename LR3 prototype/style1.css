@@ -1,0 +1,112 @@
+.hP:hover {
+    cursor: pointer;
+}
+.searchBar {
+    width: 400px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.blackLine {
+    width: 100%;
+    height: fit-content;
+    background-color: black;
+}
+.blackLineBox {
+    width: fit-content;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    white-space: pre;
+    font-size: 14px;
+}
+.blackLineBox:hover {
+    background-color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+
+.graySmallText {
+    color: gray;
+    height: 14px;
+    width: fit-content;
+    border-bottom:1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graySmallText:hover {
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.box {
+    height: 40px;
+    width: fit-content;
+    border: 1px solid rgb(230, 230, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.invisibleBox {
+    width: fit-content;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.redBtn {
+    width: fit-content;
+    height: 45px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.bigBtn {
+    width: 260px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.grayBox {
+    height: 75px;
+    width: 260px; 
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.iB2 {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gap10down {
+    gap: 10px;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

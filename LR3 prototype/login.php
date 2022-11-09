@@ -11,10 +11,11 @@
 
     if(isset($_POST['submit']))
     {
-
-        $stmt = $connect->query( "SELECT * FROM users WHERE login='$login' AND password='$password'" );
-        $users = $stmt->fetchAll();
-        var_dump($users);
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE password = :password AND login = :login");
+        $stmt->bindValue('login', $login, PDO::PARAM_STR);
+        $stmt->bindValue('password', $password, PDO::PARAM_STR);
+        $stmt->execute();
+       
 
         if (!empty($users))
         {

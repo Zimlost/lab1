@@ -12,8 +12,8 @@
     if(isset($_POST['submit']))
     {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE password = :password AND login = :login");
-        $stmt->bindValue('login', $login, PDO::PARAM_STR);
-        $stmt->bindValue('password', $password, PDO::PARAM_STR);
+        $stmt->bindValue('login', $_POST['login'], PDO::PARAM_STR);
+        $stmt->bindValue('password', $_POST['lpassword'], PDO::PARAM_STR);
         $stmt->execute();
        
 

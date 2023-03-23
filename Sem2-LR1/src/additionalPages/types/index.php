@@ -4,8 +4,10 @@ $title = TypesTable::getRuTable();
 $columns = TypesTable::getAllColumn();
 $table = TypesTable::getTableName();
 $values = isset($_GET['item_id']) ? GoodsTable::getItemById($_GET['item_id']) : '';
-
-TypesActions::add() == true ? header("Location: ../../pages/types/") : '';
-TypesActions::edit() == true ? header("Location: ../../pages/types/") : '';
+if (!isset($_GET['item_id'])) {
+    TypesActions::add() == true ? header("Location: ../../pages/types/") : '';
+} else {
+    TypesActions::edit() == true ? header("Location: ../../pages/types/") : '';
+}
 
 require_once("../template.php");

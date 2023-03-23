@@ -22,6 +22,10 @@ include("../../partials/header.php");
         <form action="#" class="form mt-5 d-flex flex-column align-items-center shadow-lg p-5" method="post"
               enctype="multipart/form-data">
             <h3 class="text-white" >Форма <?= isset($_GET['item_id']) ? ' редактирования' : " добавления" ?></h3>
+            <?php /** @var array $errors */
+            foreach ($errors as $error) : ?>
+                <div class='container p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end m-3'><?=$error?></div>
+            <?php endforeach; ?>
             <?php if (isset($_GET['item_id'])) : ?>
                 <input type="number" class="d-none" name="item_id" value="<?= $_GET['item_id'] ?>">
             <?php endif ?>
@@ -30,7 +34,7 @@ include("../../partials/header.php");
                     <select name="item_<?= $column ?>" id="" class="form-select w-25 m-3">
                         <option value="">Выбор</option>
                         <?php foreach ($items = TypesTable::getItems() as $item) : ?>
-                            <?php if ($values !== '' && $values[0]['id_types'] == $item['id']) : ?>
+                            <?php if ($values !== '' && $values[0]['id_type'] == $item['id']) : ?>
                                 <option selected value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
                             <?php else : ?>
                                 <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
@@ -52,3 +56,4 @@ include("../../partials/header.php");
 </div>
 </body>
 </html>
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/src/partials/footer.php'); ?>

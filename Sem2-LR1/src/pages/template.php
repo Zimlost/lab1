@@ -72,4 +72,4 @@ include("../../partials/header.php");
         </table>
     </div>
 </div>
-
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/src/partials/footer.php'); ?>
